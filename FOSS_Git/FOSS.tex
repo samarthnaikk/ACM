@@ -1,0 +1,151 @@
+\documentclass{article}
+\usepackage{listings}
+\usepackage{xcolor}
+
+% Define colors for code highlighting
+\definecolor{codegray}{gray}{0.9}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codeblue}{rgb}{0,0,1}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{codegray},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{codeblue},
+    numberstyle=\tiny\color{gray},
+    stringstyle=\color{codegreen},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\begin{document}
+
+\title{Advanced Git Commands}
+\author{}
+\date{}
+\maketitle
+
+\section{Introduction}
+Git provides many powerful commands beyond the commonly used ones like \texttt{commit}, \texttt{push}, and \texttt{merge}. This document covers nine lesser-known but useful Git commands, including their syntax, use cases, and examples.
+
+\section{git worktree}
+\textbf{Description:} Allows multiple working directories from a single repository.
+
+\textbf{Syntax:}
+\begin{lstlisting}
+git worktree add <path> <branch>
+\end{lstlisting}
+
+\textbf{Use Cases:}
+\begin{itemize}
+    \item Work on multiple branches simultaneously.
+    \item Maintain separate environments for testing.
+\end{itemize}
+
+\textbf{Example:}
+\begin{lstlisting}
+git worktree add feature-work feature-branch
+cd feature-work
+\end{lstlisting}
+
+\section{git bisect}
+\textbf{Description:} Finds the commit that introduced a bug via binary search.
+
+\textbf{Syntax:}
+\begin{lstlisting}
+git bisect start
+git bisect good <commit>
+git bisect bad <commit>
+git bisect reset
+\end{lstlisting}
+
+\section{git rerere}
+\textbf{Description:} Remembers conflict resolutions to reuse them later.
+
+\textbf{Syntax:}
+\begin{lstlisting}
+git config --global rerere.enabled true
+git merge <branch>
+\end{lstlisting}
+
+\section{git reflog}
+\textbf{Description:} Tracks all changes to the branch references.
+
+\textbf{Syntax:}
+\begin{lstlisting}
+git reflog
+git checkout HEAD@{n}
+\end{lstlisting}
+
+\section{git replace}
+\textbf{Description:} Temporarily substitutes one commit for another.
+
+\textbf{Syntax:}
+\begin{lstlisting}
+git replace <old-commit> <new-commit>
+\end{lstlisting}
+
+\section{git cherry-pick}
+\textbf{Description:} Applies a specific commit from another branch.
+
+\textbf{Syntax:}
+\begin{lstlisting}
+git cherry-pick <commit>
+\end{lstlisting}
+
+\section{git submodule}
+\textbf{Description:} Manages repositories inside repositories.
+
+\textbf{Syntax:}
+\begin{lstlisting}
+git submodule add <repo-url> <path>
+\end{lstlisting}
+
+\textbf{Use Cases:}
+\begin{itemize}
+    \item Include external libraries inside a repository.
+    \item Track dependencies separately from the main project.
+\end{itemize}
+
+\section{git blame}
+\textbf{Description:} Shows who made changes to each line in a file.
+
+\textbf{Syntax:}
+\begin{lstlisting}
+git blame <file>
+\end{lstlisting}
+
+\textbf{Use Cases:}
+\begin{itemize}
+    \item Identify who introduced a particular change.
+    \item Debugging code history.
+\end{itemize}
+
+\section{git bundle}
+\textbf{Description:} Creates a single file containing Git repository data.
+
+\textbf{Syntax:}
+\begin{lstlisting}
+git bundle create <file> <branch>
+\end{lstlisting}
+
+\textbf{Use Cases:}
+\begin{itemize}
+    \item Share repositories without direct access.
+    \item Archive a repository snapshot.
+\end{itemize}
+
+\section{Conclusion}
+These advanced Git commands can enhance productivity, improve debugging, and streamline workflows. Mastering them can help developers manage complex Git projects more efficiently.
+
+\end{document}

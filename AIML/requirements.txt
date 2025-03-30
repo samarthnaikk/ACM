@@ -1,0 +1,13 @@
+opencv-python
+numpy
+scikit-learn
+matplotlib
+pandas
+seaborn
+tensorflow
+torch
+torchvision
+timm
+transformers
+tqdm
+webcolors
